@@ -3,8 +3,8 @@ import PopupWithForm from './PopupWithForm'
 
 
 function AddPlacePopup(props) {
-    return (
-      <PopupWithForm
+  return (
+    <PopupWithForm
       isOpen={props.isOpen}
       onClose={props.onClose}
       name="edit-avatar"
@@ -16,7 +16,7 @@ function AddPlacePopup(props) {
             name="popupNewTitle"
             className="popup__input popup__name"
             minLength="2"
-            maxLength="30"            
+            maxLength="30"
             placeholder="Название"
             required
           />
@@ -33,11 +33,11 @@ function AddPlacePopup(props) {
           <span className="popup__input-error popupNewLink-error"></span>
         </div>
         <button type="submit" className="popup__save">
-        Создать
+          Создать
         </button>
       </div>
     </PopupWithForm>
-    )
+  )
 }
 
 export default AddPlacePopup

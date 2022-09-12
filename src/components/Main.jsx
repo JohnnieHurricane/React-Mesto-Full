@@ -5,9 +5,9 @@ import EditButtonWithoutBorders from '../images/Edit_button_without_border.png'
 
 function Main(props) {
 
-    const [userName, setUserName] = React.useState()
-    const [userDescription, setUserDescription] = React.useState()
-    const [userAvatar, setUserAvatar] = React.useState()
+    const [userName, setUserName] = React.useState('')
+    const [userDescription, setUserDescription] = React.useState('')
+    const [userAvatar, setUserAvatar] = React.useState('')
     const [cards, setCards] = React.useState([])
 
     React.useEffect(() => {
@@ -26,13 +26,31 @@ function Main(props) {
             })
     }, [])
 
+    /*React.useEffect(() => {
+        Promise.all([api.getUserInfoFromServer(), api.getCards()])
+            .then((userInfo, cardsData) => {
+                setUserName(userInfo.name)
+                setUserDescription(userInfo.about)
+                setUserAvatar(userInfo.avatar)
+                setCards(cardsData)
+            })
+    }, [])
+    В таком случае у меня не работает, он массив карточек начинает перебирать до того, 
+    как получит полный ответ и в итоге пишет undefaund. Я не смог сообразить,
+     как перенести setState из .then в .finnaly, чтоб он за массив брался только 
+     после того, как получит весь реквест. Оставил как есть :(
+        ******************
+    Так же оставлю тут комментарий к заметке о файле ReADME. Я ж там вроде все указал.
+    Напиши пожалуйста подробнее, в каком виде нужно сделать
+    */
+
     return (
         <main className="content">
             <section className="profile">
                 <div className="profile__person">
                     <div className="profile__avatar-wrapper">
                         <img alt="фотография профиля"
-                            className="profile__image" style={{ backgroundImage: `url(${userAvatar})` }} />
+                            className="profile__image" src={userAvatar} />
                         <button className="profile__avatar-edit" type="button" onClick={props.onEditAvatar}>
                             <img className="profile__avatar-icon"
                                 src={EditButtonWithoutBorders} alt="edit icon" />
@@ -48,18 +66,18 @@ function Main(props) {
                 </div>
                 <button className="profile__add-post" type="button" onClick={props.onAddPlace}></button>
             </section>
-            <section className="cards elements">
-                <ul className="cards__list"></ul>
-            </section>
             <section className="cards__list elements">
                 {cards.map((card) => {
                     return (
-                    <Card
-                        card={card}
-                        key={card._id}
-                        onCardClick={props.onCardClick}
-                    />
-                )})}
+                        <li className="elements__item">
+                            <Card
+                                card={card}
+                                key={card._id}
+                                onCardClick={props.onCardClick}
+                            />
+                        </li>
+                    )
+                })}
             </section>
         </main>
     );

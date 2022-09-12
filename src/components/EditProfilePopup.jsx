@@ -15,7 +15,7 @@ function EditProfilePopup(props) {
             name="name"
             className="popup__input popup__name"
             minLength="2"
-            maxLength="40"            
+            maxLength="40"
             placeholder="Введите имя"
             required
           />
@@ -25,7 +25,7 @@ function EditProfilePopup(props) {
           <input
             type="text"
             name="about"
-            minLength="2" 
+            minLength="2"
             maxLength="200"
             className="popup__input popup__profession"
             placeholder="Введите Вашу профессию"

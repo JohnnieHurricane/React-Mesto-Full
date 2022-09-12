@@ -3,13 +3,13 @@ import React from 'react'
 function Card(props) {
     const card = props.card
 
-    function handleClick() {
+    function handleImageClick() {
         props.onCardClick(props.card);
-      }
+    }
 
     return (
-        <li className="elements__item">
-            <img src={card.link} alt={card.title} className="elements__photo" onClick={handleClick} style={{ backgroundImage: `url(${card.link})` }}/>
+        <>
+            <img src={card.link} alt={card.title} className="elements__photo" onClick={handleImageClick} style={{ backgroundImage: `url(${card.link})` }} />
             <button className="elements__delete-btn" type="button"></button>
             <div className="elements__description">
                 <h2 className="elements__title">{card.name}</h2>
@@ -18,7 +18,7 @@ function Card(props) {
                     <p className="elements__like-count">{card.likes.length}</p>
                 </div>
             </div>
-        </li>
+        </>
     )
 }
 

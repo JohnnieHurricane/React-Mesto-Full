@@ -10,7 +10,7 @@ class Api {
         })
             .then(this._checkResolve);
     }
-    
+
     getUserInfoFromServer() {
         return fetch(`${this._host}/users/me`, {
             headers: this._token,
@@ -55,7 +55,7 @@ class Api {
             headers: this._token,
             body: JSON.stringify(card),
         })
-            .then(this._checkResolve);            
+            .then(this._checkResolve);
     }
 
     deleteCard(id) {
@@ -86,9 +86,9 @@ class Api {
 const api = new Api(({
     host: "https://mesto.nomoreparties.co/v1/cohort-47",
     token: {
-      authorization: "0cd2188b-f25f-415c-a9b6-c2be13a1732d",
-      "Content-Type": "application/json",
+        authorization: "0cd2188b-f25f-415c-a9b6-c2be13a1732d",
+        "Content-Type": "application/json",
     },
-  }))
+}))
 
-  export default api
+export default api
