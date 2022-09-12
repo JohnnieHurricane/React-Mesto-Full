@@ -10,39 +10,35 @@ function Main(props) {
     const [userAvatar, setUserAvatar] = React.useState('')
     const [cards, setCards] = React.useState([])
 
-    React.useEffect(() => {
-        api.getUserInfoFromServer()
-            .then((userInfo) => {
-                setUserName(userInfo.name)
-                setUserDescription(userInfo.about)
-                setUserAvatar(userInfo.avatar)
-            })
-    }, [])
+    // React.useEffect(() => {
+    //     api.getUserInfoFromServer()
+    //         .then((userInfo) => {
+    //             setUserName(userInfo.name)
+    //             setUserDescription(userInfo.about)
+    //             setUserAvatar(userInfo.avatar)
+    //         })
+    // }, [])
+
+    // React.useEffect(() => {
+    //     api.getCards()
+    //         .then((cardsData) => {
+    //             setCards(cardsData)
+    //         })
+    // }, [])
 
     React.useEffect(() => {
-        api.getCards()
-            .then((cardsData) => {
-                setCards(cardsData)
-            })
-    }, [])
-
-    /*React.useEffect(() => {
         Promise.all([api.getUserInfoFromServer(), api.getCards()])
-            .then((userInfo, cardsData) => {
+            .then(([userInfo, cardsData]) => {
                 setUserName(userInfo.name)
                 setUserDescription(userInfo.about)
                 setUserAvatar(userInfo.avatar)
                 setCards(cardsData)
             })
     }, [])
-    В таком случае у меня не работает, он массив карточек начинает перебирать до того, 
-    как получит полный ответ и в итоге пишет undefaund. Я не смог сообразить,
-     как перенести setState из .then в .finnaly, чтоб он за массив брался только 
-     после того, как получит весь реквест. Оставил как есть :(
-        ******************
-    Так же оставлю тут комментарий к заметке о файле ReADME. Я ж там вроде все указал.
-    Напиши пожалуйста подробнее, в каком виде нужно сделать
-    */
+
+    /*Можешь, пожалуйста, объяснить, как вынести правильно map из разметки JSX? 
+    Я сам не понял и мы коллективно в чатике когорты тоже не сообразили
+    я потом потру лишние комменты, а знания превнесу в массы в чатик)*/
 
     return (
         <main className="content">
