@@ -1,4 +1,6 @@
 import React from 'react'
+import PopupWithForm from './PopupWithForm'
+
 
 function DeleteCardPopup (props) {
     return (
