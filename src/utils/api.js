@@ -66,21 +66,37 @@ class Api {
             .then(this._checkResolve);
     }
 
-    putLike(id) {
-        return fetch(`${this._host}/cards/${id}/likes`, {
-            method: "PUT",
-            headers: this._token,
-        })
-            .then(this._checkResolve);
+    changeLikeCardStatus(id, isLiked) {
+        if (isLiked) {
+            return fetch(`${this._host}/cards/${id}/likes`, {
+                method: "PUT",
+                headers: this._token,
+            })
+                .then(this._checkResolve);
+        } else {
+            return fetch(`${this._host}/cards/${id}/likes`, {
+                method: "DELETE",
+                headers: this._token,
+            })
+                .then(this._checkResolve);
+        }
     }
 
-    deleteLike(id) {
-        return fetch(`${this._host}/cards/${id}/likes`, {
-            method: "DELETE",
-            headers: this._token,
-        })
-            .then(this._checkResolve);
-    }
+    // putLike(id) {
+    //     return fetch(`${this._host}/cards/${id}/likes`, {
+    //         method: "PUT",
+    //         headers: this._token,
+    //     })
+    //         .then(this._checkResolve);
+    // }
+
+    // deleteLike(id) {
+    //     return fetch(`${this._host}/cards/${id}/likes`, {
+    //         method: "DELETE",
+    //         headers: this._token,
+    //     })
+    //         .then(this._checkResolve);
+    // }
 }
 
 const api = new Api(({
