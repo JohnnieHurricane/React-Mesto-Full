@@ -8,27 +8,27 @@ function EditProfilePopup(props) {
   const [description, setDescription] = React.useState('');
   const currentUser = React.useContext(CurrentUserContext);
 
-React.useEffect(() => {
-  setName(currentUser.name)
-  setDescription(currentUser.about)
-}, [currentUser]); 
+  React.useEffect(() => {
+    setName(currentUser.name)
+    setDescription(currentUser.about)
+  }, [currentUser]);
 
-function handleNameChange(e) {
-  setName(e.target.value);
-}
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
 
-function handleDescriptionChange(e) {
-  setDescription(e.target.value);
-}
+  function handleDescriptionChange(e) {
+    setDescription(e.target.value);
+  }
 
-function handleSubmit(e) {
-  e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  props.onUpdateUser({
-    name,
-    about: description,
-  });
-} 
+    props.onUpdateUser({
+      name,
+      about: description,
+    });
+  }
 
   return (
     <PopupWithForm
