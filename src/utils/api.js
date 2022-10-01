@@ -25,6 +25,8 @@ class Api {
         }
         return Promise.reject(`Ай-яй-яй-яй! А кто это сделал?!: ${res.status}`);
     }
+    //res.ok ? res.json() : Promise.reject(`Ай-яй-яй-яй! А кто это сделал?!: ${res.status}`);
+    //не работает в таком формате :(
 
     patchUserAvatarToServer(data) {
         return fetch(`${this._host}/users/me/avatar`, {
@@ -81,22 +83,6 @@ class Api {
                 .then(this._checkResolve);
         }
     }
-
-    // putLike(id) {
-    //     return fetch(`${this._host}/cards/${id}/likes`, {
-    //         method: "PUT",
-    //         headers: this._token,
-    //     })
-    //         .then(this._checkResolve);
-    // }
-
-    // deleteLike(id) {
-    //     return fetch(`${this._host}/cards/${id}/likes`, {
-    //         method: "DELETE",
-    //         headers: this._token,
-    //     })
-    //         .then(this._checkResolve);
-    // }
 }
 
 const api = new Api(({

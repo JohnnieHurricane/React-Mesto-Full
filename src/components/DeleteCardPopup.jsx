@@ -3,19 +3,26 @@ import PopupWithForm from './PopupWithForm'
 
 
 function DeleteCardPopup(props) {
+
+  const { isOpen, onClose, onAccept, card } = props
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    onAccept(card)
+    onClose()
+  }
+
   return (
-    <div className="popup popup_type_delete-card">
-      <div className="popup__container">
-        <button className="popup__close popup__close_type_delete-card" type="button"></button>
-        <div className="popup__edit-window popup__edit-window_small">
-          <form className="popup__form-element popup__form" name="popupuCardDeleteForm">
-            <h3 className="popup__title">Вы уверены?</h3>
-            <button className="popup__save popup__save_delete-card" name="popupSubmit" type="submit">Да</button>
-          </form>
-        </div>
-      </div>
-    </div>
+    <PopupWithForm
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={(e) => handleSubmit(e)}
+      name="delete-card"
+      title="Вы уверены?">
+      <button className="popup__save popup__save_delete-card" type="submit">Да</button>
+    </PopupWithForm>
   )
+
 }
 
 export default DeleteCardPopup

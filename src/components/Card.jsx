@@ -3,7 +3,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Card(props) {
     const currentUser = React.useContext(CurrentUserContext);
-    const card = props.card
+    const { card, onCardClick,  onCardLike, onCardDelete} = props
     const isOwn = card.owner._id === currentUser._id;
     // Создаём переменную, которую после зададим в `className` для кнопки удаления
     const cardDeleteButtonClassName = (
@@ -17,15 +17,15 @@ function Card(props) {
     );
 
     function handleImageClick() {
-        props.onCardClick(props.card);
+        onCardClick(card);
     }
 
     function handleLikeClick(card) {
-        props.onCardLike(card)
+        onCardLike(card)
     }
 
     function handleDeleteClick() {
-        props.onCardDelete(props.card)
+        onCardDelete(card)
     }
 
     return (

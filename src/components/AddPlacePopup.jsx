@@ -6,10 +6,12 @@ function AddPlacePopup(props) {
   const titleRef = React.useRef('')
   const linkRef = React.useRef('')
 
+  const {onAddPlace, isOpen, onClose} = props
+
   function handleSubmit(e) {
     e.preventDefault();
 
-    props.onAddPlace({
+    onAddPlace({
       name: titleRef.current.value,
       link: linkRef.current.value,
     })
@@ -20,8 +22,8 @@ function AddPlacePopup(props) {
 
   return (
     <PopupWithForm
-      isOpen={props.isOpen}
-      onClose={props.onClose}
+      isOpen={isOpen}
+      onClose={onClose}
       onSubmit={(e) => handleSubmit(e)}
       name="edit-avatar"
       title="Новое место">
