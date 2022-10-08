@@ -1,7 +1,13 @@
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
 class Api {
     constructor({ host, token }) {
         this._host = host;
         this._token = token;
+        this.state = {
+            loggedIn: false
+          }
     }
 
     getCards() {
