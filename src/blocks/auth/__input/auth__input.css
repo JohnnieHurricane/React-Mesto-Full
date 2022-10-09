@@ -17,7 +17,7 @@
     margin: 0;
   }
   
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 881px) {
     .auth__input {
       width: 260px;
     }

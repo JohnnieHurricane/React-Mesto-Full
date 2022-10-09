@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Route,
-  Router,
-  withRouter,
-  useHistory,
-  Switch,
-} from "react-router-dom";
+import { Route, Router, Switch, withRouter, useHistory } from "react-router-dom"
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
@@ -13,8 +7,12 @@ import AddPlacePopup from './AddPlacePopup'
 import EditProfilePopup from './EditProfilePopup'
 import EditAvatarPopup from './EditAvatarPopup'
 import ImagePopup from './ImagePopup'
+import Login from './Login'
+import Register from './Register'
+import ProtectedRoute from './ProtectedRoute'
+import InfoTooltip from './InfoTooltip'
 import api from '../utils/api'
-import { CurrentUserContext } from "../contexts/CurrentUserContext"
+import { CurrentUserContext } from '../contexts/CurrentUserContext'
 import DeleteCardPopup from './DeleteCardPopup'
 
 function App() {
@@ -122,7 +120,7 @@ function App() {
     setIsImagePopupOpen(false)
     setIsDeletePopupOpen(false)
     setSelectedCard({})
-  }
+  }  
 
   return (
     <Router history={history}>
@@ -131,17 +129,21 @@ function App() {
           <div className="page">
             <Header loggedIn={loggedIn} onSignOut={handleSignOut} email={email} />
             <Switch >
-              <Main
-                onEditAvatar={handleEditAvatarClick}
-                onEditProfile={handleEditProfileClick}
-                onAddPlace={handleAddPlaceClick}
-                onCardClick={handleCardClick}
-                onCardLike={handleCardLike}
-                onCardDelete={DeleteCardClick}
-                cards={cards}
+              <ProtectedRoute
+              exact
+              path="/"
+              loggedIn={loggedIn}
+              component={Main}
+              onEditAvatar={handleEditAvatarClick}
+              onEditProfile={handleEditProfileClick}
+              onAddPlace={handleAddPlaceClick}
+              onCardClick={handleCardClick}
+              onCardLike={handleCardLike}
+              onCardDelete={DeleteCardClick}
+              cards={cards}
               />
               <Route exact path="/sign-in">
-                <Login  />
+                <Login />
               </Route>
               <Route exact path="/sign-up">
                 <Register />

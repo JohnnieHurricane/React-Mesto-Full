@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Register({ handleRegister }) {
+export default function Register({ onRegister }) {
 
     const [state, setState] = React.useState({
         email: "",
@@ -18,14 +18,14 @@ export default function Register({ handleRegister }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        handleRegister(email, password);
+        onRegister(email, password);
     }
 
     return (
         <section className="auth">
             <div className="auth__container">
                 <form
-                    className="auth__form auth__form_register"
+                    className="auth__form"
                     name="register"
                     onSubmit={handleSubmit}>
                     <h3 className="auth__title">Регистрация</h3>

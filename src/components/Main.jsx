@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import EditButtonWithoutBorders from '../images/Edit_button_without_border.png'
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Main(props) {
 
