@@ -1,9 +1,9 @@
 import React from "react";
-import success from "../images/success.svg";
-import reject from "../images/reject.svg";
-import closeButton from "../images/close_icon.svg";
+import success from "../images/success.png";
+import reject from "../images/reject.png";
 
 export default function InfoTooltip(props) {
+    const { isOpen, onClose} = props
     return (
         <div
             className={`popup popup_type_info ${isOpen ? `popup_opened` : ""}`}>
@@ -14,7 +14,7 @@ export default function InfoTooltip(props) {
                     onClick={onClose}
                     type="button">
                 </button>
-                <div className="popup__edit-window">
+                <div className="popup__edit-window popup__edit-window_type_info">
                     <img
                         className="popup__callback-image"
                         src={props.success ? success : reject}
@@ -24,21 +24,5 @@ export default function InfoTooltip(props) {
                 </div>
             </div>
         </div>
-        // <section
-        //   className={`popup popup_type_info ${props.isOpen && "popup_opened"}`}
-        // >
-        //   <div className="popup__container popup__container_info">
-        //     <img
-        //       src={props.success ? success : reject}
-        //       alt=""
-        //       className="popup__info-image"
-        //     />
-        //     <h2 className="popup__title popup__title_type_info">
-        //       {props.success
-        //         ? "Successful registration!"
-        //         : "Something went wrong. Try again"}
-        //     </h2>
-        //   </div>
-        // </section>
     );
 }

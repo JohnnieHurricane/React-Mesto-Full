@@ -51,3 +51,19 @@
 @import './blocks/elements/__like-count/elements__like-count.css';
 @import './blocks/footer/footer.css';
 @import './blocks/footer/__copyright/footer__copyright.css';
+
+@import './blocks/auth/auth.css';
+@import './blocks/auth/__container/auth__container.css';
+@import './blocks/auth/__form/auth__form.css';
+@import './blocks/auth/__input/auth__input.css';
+@import './blocks/auth/__link/auth__link.css';
+@import './blocks/auth/__submit-button/auth__submit-button.css';
+@import './blocks/auth/__text/auth__text.css';
+@import './blocks/auth/__title/auth__title.css';
+@import './blocks/header/__email/header__email.css';
+@import './blocks/header/__link/header__link.css';
+@import './blocks/header/__link/_logout/header__link_logout.css';
+@import './blocks/header/__wrapper/header__wrapper.css';
+@import './blocks/popup/__callback-image/popup__callback-image.css';
+@import './blocks/popup/__title/_type/popup__title_type_info.css';
+@import './blocks/popup/__edit-window/_type/popup__edit-window_type_info.css';
